@@ -94,6 +94,7 @@ console.log(userData);
 
 // 重置表单
 $('#userForm').ReSet();
+
 日期字段处理
 input type="text" name="birthdate" fromat="yyyy-mm-dd"
 $('#myForm').Set_Form({
