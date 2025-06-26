@@ -36,12 +36,12 @@ $('#myForm').Set_Form({
 支持的表单元素类型：
 | 元素类型 | 支持情况 | 特殊说明 |
 | -------- | -------- | -------- |
-| input[type=text]	     | ✅	直接赋值     | Text     |
-| input[type=radio]	     | ✅	需要精确匹配value值     | Text     |
-| input[type=checkbox]	     | ✅	值转换为布尔值     | Text     |
-| input[type=date]	     | ✅	需设置format属性     | Text     |
-| select     | ✅	支持大小写匹配     | Text     |	
-| textarea     | ✅	直接赋值     | Text     |	
+| input[type=text]	     | ✅	     | 直接赋值     |
+| input[type=radio]	     | ✅	     | 需要精确匹配value值     |
+| input[type=checkbox]	     | ✅	     | 值转换为布尔值     |
+| input[type=date]	     | ✅	     | 需设置format属性     |
+| select     | ✅	     | 支持大小写匹配     |	
+| textarea     | ✅	     | 直接赋值     |	
 ### 2. 数据获取方法
 提供多种数据获取方式：
 // 获取序列化字符串
