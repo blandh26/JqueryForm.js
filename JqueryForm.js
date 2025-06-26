@@ -17,10 +17,10 @@
  * 2018-11-27：获取表单添加2个方法。Get_FormArray 和 Get_FormOneArray
  * 2018-12-11：Get_FormOneArray_List、Get_Form_List方法新增 可以用class 选多个表单数据 推荐用Get_FormOneArray_List
  */
-(function($) {
+(function ($) {
     $.fn.extend({
         //赋值表单
-        Set_Form: function(options) {
+        Set_Form: function (options) {
             //默认参数
             var defaults = {
                 jsonValue: "",
@@ -37,7 +37,7 @@
             //如果传入的json对象为空，则不做任何操作
             if (!$.isEmptyObject(jsonValue)) {
                 var debugInfo = "";
-                $.each(jsonValue, function(key, value) {
+                $.each(jsonValue, function (key, value) {
                     //是否开启调试，开启将会把name value打印出来
                     if (setting.isDebug) {
                         alert("name:" + key + "; value:" + value);
@@ -59,7 +59,7 @@
                                 } else {
                                     $("input:checkbox[name='" + key.toLowerCase() + "']").prop("checked", "");
                                 }
-                            } else if (formField.attr("fromat") != "" &amp; amp; &amp; amp; formField.attr("fromat") != undefined &amp; amp; &amp; amp; formField.attr("fromat") != null) {
+                            } else if (formField.attr("format") != "" && formField.attr("format") != undefined && formField.attr("format") != null) {
                                 if (value != null) {
                                     value = value.toLowerCase().replace("t", " ")
                                     switch (formField.attr("fromat").toLowerCase()) {
@@ -98,11 +98,11 @@
             return form; //返回对象，提供链式操作
         },
         //获取表单数据 ftopicno=&amp;ftopicname=&amp;supnamecn=&amp;createtime_strat=
-        Get_Form: function() {
+        Get_Form: function () {
             var list = this.serializeArray();
             var $radio = $('input[type=radio],input[type=checkbox]', this);
             var temp = {};
-            $.each($radio, function() {
+            $.each($radio, function () {
                 if (!temp.hasOwnProperty(this.name)) {
                     if ($("input[name='" + this.name + "']:checked").length == 0) {
                         temp[this.name] = "";
@@ -114,7 +114,7 @@
                 }
             });
             var disabledlist = $('input[disabled=disabled]', this);
-            for (var i = 0; i &amp; lt; disabledlist.length; i++) {
+            for (var i = 0; i < disabledlist.length; i++) {
                 list.push({
                     name: disabledlist[i].name,
                     value: disabledlist[i].value
@@ -123,11 +123,11 @@
             return jQuery.param(list);
         },
         //获取表单数据OneArray {"name":"ftopicno","value":"","value":""}
-        Get_FormOneArray: function() {
+        Get_FormOneArray: function () {
             var list = this.serializeArray();
             var $radio = $('input[type=radio],input[type=checkbox]', this);
             var temp = {};
-            $.each($radio, function() {
+            $.each($radio, function () {
                 if (!temp.hasOwnProperty(this.name)) {
                     if ($("input[name='" + this.name + "']:checked").length == 0) {
                         temp[this.name] = "";
@@ -139,14 +139,14 @@
                 }
             });
             var disabledlist = $('input[disabled=disabled]', this);
-            for (var i = 0; i &amp; lt; disabledlist.length; i++) {
+            for (var i = 0; i < disabledlist.length; i++) {
                 list.push({
                     name: disabledlist[i].name,
                     value: disabledlist[i].value
                 });
             }
             var onejson = {};
-            for (var i = 0; i &amp; lt; list.length; i++) {
+            for (var i = 0; i < list.length; i++) {
                 if (list[i].value == "" || list[i].value == "null" || list[i].value == "undefined" || list[i].value == null || list[i].value == undefined) {
                     onejson[list[i].name] = null;
                 } else {
@@ -154,17 +154,17 @@
                 }
             }
             let selectList = $("select");
-            for (var i = 0; i &lt; selectList.length; i++) {
+            for (var i = 0; i < selectList.length; i++) {
                 onejson[$("select")[i].id] = $("select")[i].value;
             }
             return onejson;
         },
         //获取表单数据Array [{"name":"ftopicno","value":""},{"name":"ftopicname","value":""}]
-        Get_FormArray: function() {
+        Get_FormArray: function () {
             var list = this.serializeArray();
             var $radio = $('input[type=radio],input[type=checkbox]', this);
             var temp = {};
-            $.each($radio, function() {
+            $.each($radio, function () {
                 if (!temp.hasOwnProperty(this.name)) {
                     if ($("input[name='" + this.name + "']:checked").length == 0) {
                         temp[this.name] = "";
@@ -176,13 +176,13 @@
                 }
             });
             var disabledlist = $('input[disabled=disabled]', this);
-            for (var i = 0; i &amp; lt; disabledlist.length; i++) {
+            for (var i = 0; i < disabledlist.length; i++) {
                 list.push({
                     name: disabledlist[i].name,
                     value: disabledlist[i].value
                 });
             }
-            for (var i = 0; i &amp; lt; list.length; i++) {
+            for (var i = 0; i < list.length; i++) {
                 if (list[i].value == "" || list[i].value == "null" || list[i].value == "undefined" || list[i].value == null || list[i].value == undefined) {
                     list[i].value = null;
                 }
@@ -190,14 +190,14 @@
             return list;
         },
         //获取表单数据 ftopicno=&amp;ftopicname=&amp;supnamecn=&amp;createtime_strat= 中间‖隔开2个表单
-        Get_Form_List: function() {
+        Get_Form_List: function () {
             var formlist = this;
             var strlist = "";
-            for (var i = 0; i &amp; lt; formlist.length; i++) {
+            for (var i = 0; i < formlist.length; i++) {
                 var list = $("#" + formlist[i].id).serializeArray();
                 var $radio = $('input[type=radio],input[type=checkbox]', this);
                 var temp = {};
-                $.each($radio, function() {
+                $.each($radio, function () {
                     if (!temp.hasOwnProperty(this.name)) {
                         if ($("input[name='" + this.name + "']:checked").length == 0) {
                             temp[this.name] = "";
@@ -209,7 +209,7 @@
                     }
                 });
                 var disabledlist = $('input[disabled=disabled]', this);
-                for (var j = 0; j &amp; lt; disabledlist.length; j++) {
+                for (var j = 0; j < disabledlist.length; j++) {
                     list.push({
                         name: disabledlist[j].name,
                         value: disabledlist[j].value
@@ -224,14 +224,14 @@
             return strlist;
         },
         //获取表单数据Get_FormOneArray_List {"name":"ftopicno","value":"","value":""}
-        Get_FormOneArray_List: function() {
+        Get_FormOneArray_List: function () {
             var formlist = this;
             var templist = [];
-            for (var i = 0; i &amp; lt; formlist.length; i++) {
+            for (var i = 0; i < formlist.length; i++) {
                 var list = $("#" + formlist[i].id).serializeArray();
                 var $radio = $('input[type=radio],input[type=checkbox]', this);
                 var temp = {};
-                $.each($radio, function() {
+                $.each($radio, function () {
                     if (!temp.hasOwnProperty(this.name)) {
                         if ($("input[name='" + this.name + "']:checked").length == 0) {
                             temp[this.name] = "";
@@ -243,14 +243,14 @@
                     }
                 });
                 var disabledlist = $('input[disabled=disabled]', this);
-                for (var j = 0; j &amp; lt; disabledlist.length; j++) {
+                for (var j = 0; j < disabledlist.length; j++) {
                     list.push({
                         name: disabledlist[j].name,
                         value: disabledlist[j].value
                     });
                 }
                 var onejson = {};
-                for (var k = 0; k &amp; lt; list.length; k++) {
+                for (var k = 0; k < list.length; k++) {
                     if (list[k].value == "" || list[k].value == "null" || list[k].value == "undefined" || list[k].value == null || list[k].value == undefined) {
                         onejson[list[k].name] = null;
                     } else {
@@ -262,11 +262,11 @@
             return templist;
         },
         //重置表单包含 redio和checkbox
-        ReSet: function() {
+        ReSet: function () {
             this[0].reset();
             var $list = $('input[type=radio],input[type=checkbox]', this);
             var temp = {};
-            $.each($list, function() {
+            $.each($list, function () {
                 if (!temp.hasOwnProperty(this.name)) {
                     $("input[name='" + this.name + "']:checked").prop('checked', '');
                 }
@@ -274,7 +274,7 @@
             var $hiddenlist = $('input[type=hidden]', this);
             var hiddentemp = {};
             var selector = this.selector;
-            $.each($hiddenlist, function() {
+            $.each($hiddenlist, function () {
                 if (!hiddentemp.hasOwnProperty(this.name)) {
                     $(selector + " input[name='" + this.name + "']").val('');
                 }
@@ -303,10 +303,8 @@
         var h = today.getFullYear();
         var m = today.getMonth() + 1;
         var d = today.getDate();
-        m = m &amp; lt;
-        10 ? "0" + m : m; // 这里判断月份是否&lt;10,如果是在月份前面加'0'
-        d = d &amp; lt;
-        10 ? "0" + d : d; // 这里判断日期是否&lt;10,如果是在日期前面加'0'
+        m = m < 10 ? "0" + m : m; // 这里判断月份是否&lt;10,如果是在月份前面加'0'
+        d = d < 10 ? "0" + d : d; // 这里判断日期是否&lt;10,如果是在日期前面加'0'
         return h + "-" + m + "-" + d;
     }
 })(jQuery)
