@@ -9,10 +9,10 @@ JqueryForm.js 是一个轻量级 jQuery 表单处理插件，提供以下核心�
 - 调试模式
 
 ## 安装
-引入 jQuery
-https://code.jquery.com/jquery-3.6.0.min.js
-引入 JqueryForm 插件
-jquery.form.js
+<!--  引入 jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- 引入 JqueryForm 插件 -->
+<script src="path/to/jquery.form.js"></script>
 
 ## 核心功能
 ### 1. 表单赋值 Set_Form()
@@ -69,6 +69,7 @@ const multiJson = $('.forms').Get_FormOneArray_List();
 $('#myForm').ReSet();
 ### 5. 日期处理工具
 提供日期计算方法：
+
 // 获取3个月后的日期
 const futureDate = today('m', '+', 3);
 // 输出: "2023-11-15"
@@ -107,7 +108,7 @@ $('#myForm').Set_Form({
 示例：username（✓） userName（✗）
 ## 日期格式化
 支持以下格式：
-input type="text" name="birthdate" fromat="yyyy-mm-dd"
+<input type="text" name="birthdate" fromat="yyyy-mm-dd">
 yyyy-mm-dd、dd:hh:mm、yyyy-mm-dd dd:hh:mm
 ## 调试模式
 Set_Form({ isDebug: true }); // 显示所有字段赋值过程
