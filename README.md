@@ -28,10 +28,10 @@ $('#myForm').Set_Form({
 });
 
 | 参数 | 类型 | 说明 | 默认值 |
-| -------- | -------- | -------- |
-| jsonValue     | Object     | 表单数据对象     | 必填     |
-| isDebug     | Boolean     | 调试模式开关     | false     |
-| jsonValue     | Object     | 表单数据对象     | 必填     |
+| -------- | -------- | -------- | -------- |
+| jsonValue | Object | 表单数据对象     | 必填     |
+| isDebug | Boolean | 调试模式开关     | false     |
+| jsonValue | Object | 表单数据对象     | 必填     |
 			
 支持的表单元素类型：
 | 元素类型 | 支持情况 | 特殊说明 |
